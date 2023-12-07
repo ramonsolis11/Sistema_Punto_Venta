@@ -92,10 +92,12 @@ class CategoriaController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-    {
+    {   
         $categoria = Categoria::findOrFail($id);
         $categoria->estatus = '0';
         $categoria->update();
-        return Redirect::to('almacen/categoria');
+        /* retunr Redirect::to('almacen/categoria'); */
+        return redirect()->route('almacen.categoria.index')
+            ->with('success', 'Categoria eliminada con éxito');
     }
 }
