@@ -22,15 +22,15 @@ class CategoriaController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $query = trim($request->get('searchText'));
+            $query = trim($request->get('texto'));
             $categorias = DB::table('categoria')
                 ->where('categoria', 'LIKE', '%' . $query . '%')
                 ->where('estatus', '=', '1')
                 ->orderBy('id_categoria', 'desc')
                 ->paginate(7);
             return view('almacen.categoria.index', [
-                "categorias" => $categorias,
-                "searchText" => $query
+                "categoria" => $categorias,
+                "texto" => $query
             ]);
         }
     }
