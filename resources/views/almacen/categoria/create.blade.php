@@ -1,44 +1,38 @@
 @extends('layouts.admin')
 @section('contenido')
-
-<!-- left colum -->
-<div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-        <h3>Nueva Categoria</h3>
-
-        @if (count($errors)>0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-
-                <li>{{$error}}</li>
-
-                @endforeach
-            </ul>
+    <!-- left colum -->
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+            <h3 class="card-title">Nueva Categoria</h3>
         </div>
-        @endif
+        <!-- /.card-header -->
 
-        {!!Form::open(array('url'=>'almacen/categoria','method'=>'POST','autocomplete'=>'off'))!!}
-        {{Form::token()}}
+        <!-- form start -->
+        <form action="{{ route('categoria.store') }}" method="POST" class="form">
+            @csrf
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="categoria" id="categoria"
+                        placeholder="Ingrese el nombre de la categoria">
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="descripcion"
+                        placeholder="Ingrese la descripcion de la categoria">
+                </div>
+            </div>
+            <!-- /.card-body -->
 
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" class="form-control" placeholder="Nombre...">
-        </div>
-
-        <div class="form-group">
-            <label for="descripcion">Descripcion</label>
-            <input type="text" name="descripcion" class="form-control" placeholder="Descripcion...">
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Guardar</button>
-            <button class="btn btn-danger" type="reset">Cancelar</button>
-        </div>
-
-        {!!Form::close()!!}
-
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
+                <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
+            </div>
+        </form>
     </div>
-
-@section('scripts')
+    <!-- /.card -->
+    </div>
+    <!-- /.row -->
+@endsection
