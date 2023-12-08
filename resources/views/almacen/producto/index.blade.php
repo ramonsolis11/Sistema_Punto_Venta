@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($producto as $prod)
+                                @foreach ($productos as $prod)
                                 <tr>
                                     <td>
                                         <!-- Action buttons -->
@@ -83,7 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $producto->links() }}
+                        {{ $productos->links() }}
                     </div>
                 </div>
             </div>
