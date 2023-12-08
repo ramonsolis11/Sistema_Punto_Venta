@@ -14,7 +14,7 @@
                     <p>¿Estás seguro de eliminar la categoría {{ $cat->categoria }}</p>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">cerrar</button>
                     <button type="submit" class="btn btn-outline-light">Eliminar</button>
                 </div>
             </div>
