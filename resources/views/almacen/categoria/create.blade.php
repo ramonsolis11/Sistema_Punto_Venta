@@ -14,7 +14,7 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="categoria">Nombre</label>
                     <input type="text" class="form-control" name="categoria" id="categoria"
                         placeholder="Ingrese el nombre de la categoria">
                 </div>
@@ -33,6 +33,6 @@
         </form>
     </div>
     <!-- /.card -->
-    </div>
-    <!-- /.row -->
+</div>
+<!-- /.row -->
 @endsection
