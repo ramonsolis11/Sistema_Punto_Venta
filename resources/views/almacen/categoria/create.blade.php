@@ -18,11 +18,11 @@
                     <input type="text" class="form-control" name="categoria" id="categoria"
                         placeholder="Ingrese el nombre de la categoria">
                 </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
-                    <input type="text" class="form-control" name="descripcion" id="descripcion"
-                        placeholder="Ingrese la descripcion de la categoria">
-                </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <input type="text" class="form-control" name="descripcion" id="descripcion"
+                            placeholder="Ingrese la descripcion de la categoria">
+                    </div>
             </div>
             <!-- /.card-body -->
 
