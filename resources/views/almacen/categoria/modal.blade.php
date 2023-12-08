@@ -1,4 +1,4 @@
-<div class="modfal fade" id="modal-delete-{{ $cat->id_categoria }}">
+<div class="modal fade" id="modal-delete-{{ $cat->id_categoria }}">
     <div class="modal-dialog">
         <form action="{{ route('categoria.destroy', $cat->id_categoria) }}" method="POST">
             @csrf
