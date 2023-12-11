@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::resource('almacen/categoria', CategoriaController::class);
 Route::resource('almacen/producto', ProductoController::class);
+
