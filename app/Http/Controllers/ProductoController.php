@@ -15,7 +15,7 @@ class ProductoController extends Controller
         $texto = trim($request->get('texto'));
         $productos = DB::table('producto as a')
             ->join('categoria as c', 'a.id_categoria', '=', 'c.id_categoria')
-            ->select('a.id_producto', 'a.nombre', 'a.codigo', 'a.stock', 'c.nombre as categoria', 'a.descripcion', 'a.imagen' , 'a.estado')
+            ->select('a.id_producto', 'a.nombre', 'a.codigo', 'a.stock', 'c.categoria', 'a.descripcion', 'a.imagen' , 'a.estado')
             ->where('a.nombre', 'LIKE', '%' . $texto . '%')
             ->orwhere('a.codigo', 'LIKE', '%' . $texto . '%')
             ->orderBy('id_producto', 'desc')
