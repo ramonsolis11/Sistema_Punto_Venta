@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Rutas para la gestión de categorías
 Route::resource('almacen/categoria', CategoriaController::class);
+
+// Rutas para la gestión de productos
 Route::resource('almacen/producto', ProductoController::class);
+
 
