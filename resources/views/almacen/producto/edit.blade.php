@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 col-12">
+                    <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="descripcion">Descripcion</label>
                             <input type="text" class="form-control" name="descripcion" value="{{ $producto->descripcion }}"

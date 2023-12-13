@@ -50,18 +50,6 @@
 
                     <div class="col-md-6 col-12">
                         <div class="form-group">
-                            <label for="unidad">Unidad</label>
-                            <select name="unidad" class="form-control" id="unidad">
-                                <option>Pieza</option>
-                                <option>Kilos</option>
-                                <option>Cajas</option>
-                                <option>Paquetes</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-12">
-                        <div class="form-group">
                             <label for="descripcion">Descripcion</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcion"
                                 placeholder="Ingrese la descripcion del producto">
