@@ -72,7 +72,7 @@
                                             <a href="{{ route('producto.edit', $prod->id_producto) }}" class="btn btn-warning btn-sm"><i class="fas fa-pen"></i></a>
 
                                             <!-- Button trigger for danger theme modal -->
-                                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-delete-{{ $prod->id_producto }}"><i class="fas fa-trash-alt"></i></button>
                                         </td>
 
                                         <td>{{ $prod->codigo }}</td>
@@ -82,7 +82,7 @@
                                         <td><img src="{{ asset('imagnes/productos/' . $prod->imagen) }}" alt="{{ $prod->nombre }}" height="70px" width="70px" class="img-thumbnail"></td>
                                         <td>{{ $prod->estado }}</td>
                                     </tr>
-
+                                    @include('almacen.producto.modal')
                                 @endforeach
                             </tbody>
                         </table>
