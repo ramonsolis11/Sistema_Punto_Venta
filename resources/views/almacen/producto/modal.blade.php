@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <form action="{{ route('producto.destroy', $prod->id_producto) }}" method="POST"> // Ruta para eliminar
             @csrf
-            @method('DELETE') // Método para eliminar
+            @method('DELETE')  <!-- Method to remove -->
             <div class="modal-content bg-danger">
                 <div class="modal-header">
                     <h4 class="modal-title">Eliminar Producto</h4>
@@ -11,7 +11,7 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Estás seguro de eliminar el producto {{ $prod->nombre }}</p> // Mensaje de confirmación
+                    <p>¿Estás seguro de eliminar el producto {{ $prod->nombre }}</p> <!-- Confirmation message -->
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">cerrar</button>
