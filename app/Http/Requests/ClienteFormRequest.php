@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoriaFormRequest extends FormRequest
+class ClienteFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,8 +23,13 @@ class CategoriaFormRequest extends FormRequest
     {
         return [
 
-            'categoria' => 'required|max:50',
-            'descripcion' => 'max:256',
+            'tipo_persona' => 'required|max:50',
+            'nombre' =>'required|max:100',
+            'tipo_documento' => 'max:50',
+            'numero_documento' => 'max:50',
+            'direccion' => 'max:250',
+            'telefono' => 'max:10',
+            'email' => 'max:50',
         ];
     }
 }
