@@ -64,12 +64,70 @@ class ProductoController extends Controller
         return redirect()->route('producto.index');
     }
 
+    /**
+     * Display the specified resource.
+     *@param  int  $id
+     *@return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-
         $producto = Producto::findOrFail($id);
-
         return view('almacen.producto.show', compact('producto'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *@param  int  $id
+     *@return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $producto = Producto::findOrFail($id);
+        $categorias = DB::table('categoria')->where('estatus', '=', '1')->get();
+        return view('almacen.producto.edit', ['producto' => $producto, 'categorias' => $categorias]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *@param  \Illuminate\Http\Request  $request
+     *@param  int  $id
+     *@return \Illuminate\Http\Response
+     */
+    public function update(ProductoFormRequest $request, $id)
+    {
+        $producto = Producto::findOrFail($id);
+        $producto->id_categoria = $request->input('id_categoria');
+        $producto->codigo = $request->input('codigo');
+        $producto->nombre = $request->input('nombre');
+        $producto->stock = $request->input('stock');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->estado = 'Activo';
+
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $nombreimagen = Str::slug($request->nombre) . '.' . $imagen->guessExtension();
+            $ruta = public_path('/imagenes/productos/');
+
+            copy($imagen->getRealPath(), $ruta . $nombreimagen);
+            $producto->imagen = $nombreimagen;
+        }
+
+        $producto->update();
+        return redirect()->route('producto.index');
+    }
+
+
+    /**
+     *Remove the specified resource from storage.
+        *@param  int  $id
+        *@return \Illuminate\Http\Response
+        */
+    public function destroy($id)
+    {
+        $producto = Producto::findOrFail($id);
+        $producto->estado = 'Inactivo';
+        $producto->update();
+        return redirect()->route('producto.index');
     }
 
 }
