@@ -12,7 +12,7 @@ class ProductoController extends Controller
 {
     public function __construct()
     {
-        // Puedes agregar lógica aquí si es necesario en el futuro
+
     }
 
     public function index(Request $request)

@@ -90,6 +90,4 @@
         </div>
     </div>
 </section>
-<!-- Hoverable rows end -->
-
 @endsection
