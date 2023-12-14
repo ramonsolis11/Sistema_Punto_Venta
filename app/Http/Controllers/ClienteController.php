@@ -29,8 +29,9 @@ class ClienteController extends Controller
                 ->where('tipo_persona', '=', 'Cliente')
                 ->orderBy('id_persona', 'desc')
                 ->paginate(7);
+
             return view('ventas.clientes.index', [
-                "clientes"=>$clientes,
+                "cliente"=>$clientes,
                 "texto"=>$query
             ]);
         }
@@ -49,17 +50,18 @@ class ClienteController extends Controller
      */
     public function store(ClienteFormRequest $request)
     {
-        $cliente=new Cliente();
-        $cliente->tipo_persona=$request->get('tipo_persona');
-        $cliente->nombre=$request->get('nombre');
-        $cliente->tipo_documento->get('tipo_documento');
-        $cliente->num_documento=$request->get('num_documento');
-        $cliente->direccion=$request->get('direccion');
-        $cliente->telefono=$request->get('telefono');
-        $cliente->email=$request->get('email');
+        $cliente = new Cliente();
+        $cliente->tipo_persona = $request->get('tipo_persona');
+        $cliente->nombre = $request->get('nombre');
+        $cliente->tipo_documento = $request->get('tipo_documento'); // Corregir esta línea
+        $cliente->num_documento = $request->get('num_documento');
+        $cliente->direccion = $request->get('direccion'); // Corregir esta línea
+        $cliente->telefono = $request->get('telefono'); // Corregir esta línea
+        $cliente->email = $request->get('email'); // Corregir esta línea
         $cliente->save();
         return Redirect::to('ventas/clientes');
     }
+
 
     /**
      * Display the specified resource.
@@ -84,19 +86,20 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ClienteFormRequest $request,$id)
+    public function update(ClienteFormRequest $request, $id)
     {
-        $cliente=Cliente::findOrFail($id);
-        $cliente->tipo_persona=$request->get('tipo_persona');
-        $cliente->nombre=$request->get('nombre');
-        $cliente->tipo_documento->get('tipo_documento');
-        $cliente->num_documento=$request->get('num_documento');
-        $cliente->direccion->get('direccion');
-        $cliente->telefono->get('telefono');
-        $cliente->email->get('email');
+        $cliente = Cliente::findOrFail($id);
+        $cliente->tipo_persona = $request->get('tipo_persona');
+        $cliente->nombre = $request->get('nombre');
+        $cliente->tipo_documento = $request->get('tipo_documento'); // Corregir esta línea
+        $cliente->num_documento = $request->get('num_documento');
+        $cliente->direccion = $request->get('direccion'); // Corregir esta línea
+        $cliente->telefono = $request->get('telefono'); // Corregir esta línea
+        $cliente->email = $request->get('email'); // Corregir esta línea
         $cliente->update();
         return Redirect::to('ventas/clientes');
     }
+
 
     /**
      * Remove the specified resource from storage.

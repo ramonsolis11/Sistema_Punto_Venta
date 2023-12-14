@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-xl-12">
-                        <form action="{{ route('clientes.index') }}" method="get">
+                        <form action="{{ route('cliente.index') }}" method="get">
 
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -83,7 +83,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $clientes->links() }}
+                        {{ $cliente->links() }}
                     </div>
                 </div>
             </div>
