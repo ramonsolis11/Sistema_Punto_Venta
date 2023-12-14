@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,10 @@ Route::resource('almacen/categoria', CategoriaController::class);
 
 // Rutas para la gestión de productos
 Route::resource('almacen/producto', ProductoController::class);
+
+// Rutas para la gestión de clientes
+Route::resource('ventas/cliente', ClienteController::class);
+
+
 
 
