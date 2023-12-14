@@ -35,6 +35,16 @@
                         <input type="text" class="form-control" name="direccion" id="direccion"
                             placeholder="Ingresa la dirección">
                     </div>
+                    <div class="form-group">
+                        <label for="correo_electronico">Correo Electrónico</label>
+                        <input type="text" class="form-control" name="correo_electronico" id="correo_electronico"
+                            placeholder="Ingresa el correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="Telefono">Teléfono</label>
+                        <input type="text" class="form-control" name="Telefono" id="Telefono"
+                            placeholder="Ingresa el teléfono">
+                    </div>
             </div>
             <!-- /.card-body -->
 
