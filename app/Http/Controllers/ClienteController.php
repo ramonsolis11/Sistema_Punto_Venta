@@ -51,13 +51,14 @@ class ClienteController extends Controller
     public function store(ClienteFormRequest $request)
     {
         $cliente = new Cliente();
-        $cliente->tipo_persona = $request->get('tipo_persona');
+        $cliente->tipo_persona = 'Cliente';
         $cliente->nombre = $request->get('nombre');
-        $cliente->tipo_documento = $request->get('tipo_documento'); // Corregir esta línea
+        $cliente->tipo_documento = $request->get('tipo_documento');
         $cliente->num_documento = $request->get('num_documento');
-        $cliente->direccion = $request->get('direccion'); // Corregir esta línea
-        $cliente->telefono = $request->get('telefono'); // Corregir esta línea
-        $cliente->email = $request->get('email'); // Corregir esta línea
+        $cliente->direccion = $request->get('direccion');
+        $cliente->telefono = $request->get('telefono');
+        $cliente->email = $request->get('email');
+        $cliente->estatus = '1';
         $cliente->save();
         return Redirect::to('ventas/clientes');
     }

@@ -26,8 +26,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="numero_documento">Número Documento</label>
-                        <input type="text" class="form-control" name="numero_documento" id="numero_documento"
+                        <label for="num_documento">Número Documento</label>
+                        <input type="text" class="form-control" name="num_documento" id="num_documento"
                             placeholder="Ingresa el número de documento">
                     </div>
                     <div class="form-group">
