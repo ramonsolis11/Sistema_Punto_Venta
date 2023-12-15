@@ -94,17 +94,19 @@ class ClienteController extends Controller
      */
     public function update(ClienteFormRequest $request, $id)
     {
-        Cliente::where('id_persona', $id)->update([
-            'tipo_persona' => $request->get('tipo_persona'),
-            'nombre' => $request->get('nombre'),
-            'tipo_documento' => $request->get('tipo_documento'),
-            'num_documento' => $request->get('num_documento'),
-            'direccion' => $request->get('direccion'),
-            'telefono' => $request->get('telefono'),
-            'email' => $request->get('email'),
-        ]);
+        $cliente=Cliente::findOrFail($id);
 
-        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado con éxito');
+        $cliente->nombre = $request->input('nombre');
+        $cliente->tipo_documento = $request->input('tipo_documento');
+        $cliente->num_documento = $request->input('num_documento');
+        $cliente->direccion = $request->input('direccion');
+        $cliente->telefono = $request->input('telefono');
+        $cliente->email = $request->input('email');
+
+        $cliente->update();
+
+        return Redirect::to('ventas/cliente')
+            ->with('success', 'Cliente actualizado con éxito');
     }
 
 
