@@ -51,17 +51,22 @@ class ClienteController extends Controller
     public function store(ClienteFormRequest $request)
     {
         $cliente = new Cliente();
+
         $cliente->tipo_persona = 'Cliente';
-        $cliente->nombre = $request->get('nombre');
-        $cliente->tipo_documento = $request->get('tipo_documento');
-        $cliente->num_documento = $request->get('num_documento');
-        $cliente->direccion = $request->get('direccion');
-        $cliente->telefono = $request->get('telefono');
-        $cliente->email = $request->get('email');
+        $cliente->nombre = $request->input('nombre');
+        $cliente->tipo_documento = $request->input('tipo_documento');
+        $cliente->num_documento = $request->input('num_documento');
+        $cliente->direccion = $request->input('direccion');
+        $cliente->telefono = $request->input('telefono');
+        $cliente->email = $request->input('email');
         $cliente->estatus = '1';
+
         $cliente->save();
-        return Redirect::to('ventas/clientes');
+
+        return redirect()->route('cliente.index')->with('success', 'Cliente creado con éxito.');
     }
+
+
 
 
     /**
@@ -89,17 +94,19 @@ class ClienteController extends Controller
      */
     public function update(ClienteFormRequest $request, $id)
     {
-        $cliente = Cliente::findOrFail($id);
-        $cliente->tipo_persona = $request->get('tipo_persona');
-        $cliente->nombre = $request->get('nombre');
-        $cliente->tipo_documento = $request->get('tipo_documento'); // Corregir esta línea
-        $cliente->num_documento = $request->get('num_documento');
-        $cliente->direccion = $request->get('direccion'); // Corregir esta línea
-        $cliente->telefono = $request->get('telefono'); // Corregir esta línea
-        $cliente->email = $request->get('email'); // Corregir esta línea
-        $cliente->update();
-        return Redirect::to('ventas/clientes');
+        Cliente::where('id_persona', $id)->update([
+            'tipo_persona' => $request->get('tipo_persona'),
+            'nombre' => $request->get('nombre'),
+            'tipo_documento' => $request->get('tipo_documento'),
+            'num_documento' => $request->get('num_documento'),
+            'direccion' => $request->get('direccion'),
+            'telefono' => $request->get('telefono'),
+            'email' => $request->get('email'),
+        ]);
+
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado con éxito');
     }
+
 
 
     /**
