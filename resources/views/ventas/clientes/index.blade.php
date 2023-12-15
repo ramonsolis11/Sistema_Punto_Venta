@@ -84,13 +84,11 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $cliente->links() }}
+                        {{ $cliente->links() }} <!--esto es para la paginacion-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Hoverable rows end -->
-
 @endsection
