@@ -80,6 +80,7 @@
                                     <td>{{ $cli->email}}</td>
 
                                 </tr>
+                                @include('ventas.clientes.modal')   <!--esto es para incluir el modal-->
                                 @endforeach
                             </tbody>
                         </table>
