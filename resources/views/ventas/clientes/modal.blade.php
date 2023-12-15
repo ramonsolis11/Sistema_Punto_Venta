@@ -1,7 +1,7 @@
 <div class="modal fade" id="modal-delete-{{ $cli->id_persona }}">
     <div class="modal-dialog">
-        <form action="{{ route('cliente.destroy', $cli->persona) }}" method="POST">
-            @csrf 
+        <form action="{{ route('cliente.destroy', $cli->id_persona) }}" method="POST">
+            @csrf
             @method('DELETE') <!-- para que el formulario sepa que se va a eliminar -->
             <div class="modal-content bg-danger">
                 <div class="modal-header">

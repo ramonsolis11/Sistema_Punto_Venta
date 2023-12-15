@@ -50,21 +50,20 @@ class ClienteController extends Controller
      */
     public function store(ClienteFormRequest $request)
     {
-        $cliente = new Cliente();
-
-        $cliente->tipo_persona = 'Cliente';
-        $cliente->nombre = $request->input('nombre');
-        $cliente->tipo_documento = $request->input('tipo_documento');
-        $cliente->num_documento = $request->input('num_documento');
-        $cliente->direccion = $request->input('direccion');
-        $cliente->telefono = $request->input('telefono');
-        $cliente->email = $request->input('email');
-        $cliente->estatus = '1';
-
-        $cliente->save();
+        $cliente = Cliente::create([
+            'tipo_persona' => 'Cliente',
+            'nombre' => $request->input('nombre'),
+            'tipo_documento' => $request->input('tipo_documento'),
+            'num_documento' => $request->input('num_documento'),
+            'direccion' => $request->input('direccion'),
+            'telefono' => $request->input('telefono'),
+            'email' => $request->input('email'),
+            'estatus' => '1',
+        ]);
 
         return redirect()->route('cliente.index')->with('success', 'Cliente creado con éxito.');
     }
+
 
 
 
@@ -116,11 +115,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $cliente=Cliente::findOrFail($id);
-        $cliente->estatus='0';
+        $cliente = Cliente::findOrFail($id);
+        $cliente->estatus = '0';
         $cliente->update();
-        /* retunr Redirect::to('almacen/categoria'); */
-        return redirect()->route('clientes.index')
+
+        return redirect()->route('cliente.index')
             ->with('success', 'Cliente eliminado con éxito');
     }
 }
