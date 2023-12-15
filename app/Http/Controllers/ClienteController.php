@@ -27,6 +27,7 @@ class ClienteController extends Controller
             $clientes=DB::table('persona')
                 ->where('nombre', 'LIKE', '%' . $query . '%')
                 ->where('tipo_persona', '=', 'Cliente')
+                ->where('estatus', '=', '1')
                 ->orderBy('id_persona', 'desc')
                 ->paginate(7);
 
