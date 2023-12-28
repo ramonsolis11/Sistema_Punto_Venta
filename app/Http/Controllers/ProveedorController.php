@@ -58,13 +58,13 @@ class ProveedorController extends Controller
 
 
 
-        return redirect()->route('proveedor.index')->with('status', 'Proveedor creado con éxito');
+        return redirect()->route('proveedor.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         return view('compras.proveedor.show', [
             "proveedor"=>Proveedores::findOrFail($id)
@@ -74,17 +74,29 @@ class ProveedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        return view('compras.proveedor.edit', [
+            "proveedor"=>Proveedores::findOrFail($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProveedorFormRequest $request, $id)
     {
-        //
+        $proveedor = Proveedores::findOrFail($id);
+        $proveedor->nombre = $request->input('nombre');
+        $proveedor->tipo_documento = $request->input('tipo_documento');
+        $proveedor->num_documento = $request->input('num_documento');
+        $proveedor->direccion = $request->input('direccion');
+        $proveedor->telefono = $request->input('telefono');
+        $proveedor->email = $request->input('email');
+        $proveedor->update();
+        $proveedor->save();
+
+        return redirect()->route('compras.proveedor.index');
     }
 
     /**
@@ -92,6 +104,11 @@ class ProveedorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $proveedor = Proveedores::findOrFail($id);
+        $proveedor->estatus = '0';
+        $proveedor->update();
+        $proveedor->save();
+
+        return redirect()->route('proveedor.index')->with('success', 'Proveedor eliminado con éxito.');
     }
 }
