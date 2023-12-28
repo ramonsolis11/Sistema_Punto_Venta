@@ -36,3 +36,5 @@ Route::resource('compras/proveedor', ProveedorController::class);
 
 
 
+
+

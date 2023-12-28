@@ -58,7 +58,7 @@ class ProveedorController extends Controller
 
 
 
-        return redirect()->route('proveedor.index');
+        return redirect()->route('proveedor.index')->with('success', 'Proveedor creado con éxito.');
     }
 
     /**
@@ -96,7 +96,7 @@ class ProveedorController extends Controller
         $proveedor->update();
         $proveedor->save();
 
-        return redirect()->route('compras.proveedor.index');
+        return redirect()->route('proveedor.index');
     }
 
     /**
