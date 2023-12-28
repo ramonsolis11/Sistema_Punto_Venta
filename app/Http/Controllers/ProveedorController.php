@@ -45,7 +45,20 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedor = new Proveedores();
+        $proveedor->tipo_persona = 'Proveedor';
+        $proveedor->nombre = $request->input('nombre');
+        $proveedor->tipo_documento = $request->input('tipo_documento');
+        $proveedor->num_documento = $request->input('num_documento');
+        $proveedor->direccion = $request->input('direccion');
+        $proveedor->telefono = $request->input('telefono');
+        $proveedor->email = $request->input('email');
+        $proveedor->estatus = '1';
+        $proveedor->save();
+
+
+
+        return redirect()->route('proveedor.index')->with('status', 'Proveedor creado con éxito');
     }
 
     /**
