@@ -25,7 +25,7 @@ class ProveedorController extends Controller
                 ->orderBy('id_persona', 'desc')
                 ->paginate(7);
 
-            return view('comnpras.proveedor.index', [
+            return view('compras.proveedor.index', [
                 "proveedor"=>$proveedor,
                 "texto"=>$query
             ]);
@@ -37,7 +37,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('compras.proveedor.create');
     }
 
     /**
