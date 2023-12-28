@@ -43,7 +43,7 @@ class ProveedorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProveedorFormRequest $request)
     {
         $proveedor = new Proveedores();
         $proveedor->tipo_persona = 'Proveedor';
@@ -66,7 +66,9 @@ class ProveedorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('compras.proveedor.show', [
+            "proveedor"=>Proveedores::findOrFail($id)
+        ]);
     }
 
     /**
