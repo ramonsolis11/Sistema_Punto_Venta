@@ -3,15 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Proveedores;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProveedorFormRequest;
+use Illuminate\Support\Facades\DB;
 
 class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request) {
+
+            $query=trim($request->get('texto'));
+            $proveedor=DB::table('persona')
+                ->where('nombre', 'LIKE', '%' . $query . '%')
+                ->where('tipo_persona', '=', 'Proveedor')
+                ->where('estatus', '=', '1')
+                ->orderBy('id_persona', 'desc')
+                ->paginate(7);
+
+            return view('comnpras.proveedor.index', [
+                "proveedor"=>$proveedor,
+                "texto"=>$query
+            ]);
+        }
     }
 
     /**
