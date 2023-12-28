@@ -22,7 +22,12 @@ class ProveedorFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' =>'required|max:100',
+            'tipo_documento' => 'max:50',
+            'num_documento' => 'max:50',
+            'direccion' => 'max:250',
+            'telefono' => 'max:10',
+            'email' => 'max:50',
         ];
     }
 }
