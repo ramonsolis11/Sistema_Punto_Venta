@@ -113,7 +113,6 @@
                     </div>
                     <!-- /.card-body -->
 
-
                     <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
                     <div class="card-footer">
                         <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
@@ -125,5 +124,4 @@
     </form>
     </div>
     </div>
-    
 @endsection
