@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($ingreso as $ing)
+                                @foreach ($ingresos as $ing)
                                 <tr>
                                     <td>
                                         <!-- Action buttons -->
@@ -84,7 +84,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $ingreso->links() }}
+                        {{ $ingresos->links() }}
                     </div>
                 </div>
             </div>

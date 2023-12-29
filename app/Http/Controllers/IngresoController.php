@@ -37,7 +37,7 @@ class IngresoController extends Controller
             ->orderBy('i.id_ingreso', 'desc')
             ->paginate(15);
 
-        return view('compras.ingreso.index', ["ingresos" => $ingresos, "texto" => $query]);
+        return view('compras.ingresos.index', ["ingresos" => $ingresos, "texto" => $query]);
     }
 }
 
@@ -50,7 +50,7 @@ public function create()
         ->where('p.estatus', '=', 'Activo')
         ->get();
 
-    return view('compras.ingreso.create', ["personas" => $personas, "productos" => $productos, "ingreso" => $ingreso]);
+    return view('compras.ingresos.create', ["personas" => $personas, "productos" => $productos, "ingreso" => $ingreso]);
 }
 
 public function store(Request $request)
@@ -90,7 +90,7 @@ public function store(Request $request)
         DB::rollback();
     }
 
-    return Redirect::to('compras/ingreso');
+    return Redirect::to('compras/ingresos');
 }
 
     /**
@@ -112,7 +112,7 @@ public function store(Request $request)
             ->where('d.id_ingreso', '=', $id)
             ->get();
 
-        return view('compras.ingreso.show', ["ingreso" => $ingreso, "detalles" => $detalles]);
+        return view('compras.ingresos.show', ["ingreso" => $ingreso, "detalles" => $detalles]);
 
     }
 
@@ -141,7 +141,7 @@ public function store(Request $request)
         $ingreso->estado = 'C';
         $ingreso->update();
 
-        return Redirect::to('compras/ingreso');
+        return Redirect::to('compras/ingresos');
     }
 };
 
