@@ -7,8 +7,6 @@
                 <h3 class="card-title">Nuevo Ingreso</h3>
             </div>
             <!-- /.card-header -->
-
-            <!-- form start -->
             <form action="{{ route('ingreso.store') }}" method="POST" class="form">
                 @csrf
                 <div class="card-body">
@@ -64,84 +62,67 @@
                         <div class="col-2">
                             <div class="form-group">
                                 <label for="pcompra">P. Compra</label>
-                                <input type="number" class="form-control" name="pprecio_compra" step="0.01" min="0" id="pprecio_compra"
-                                    placeholder="P. Compra">
+                                <input type="number" class="form-control" name="pprecio_compra" step="0.01"
+                                    min="0" id="pprecio_compra" placeholder="P. Compra">
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="form-group">
                                 <label for="pventa">P. Venta</label>
-                                <input type="number" class="form-control" name="pprecio_venta" step="0.01" min="0" id="pprecio_venta"
-                                    placeholder="P. Venta">
+                                <input type="number" class="form-control" name="pprecio_venta" step="0.01"
+                                    min="0" id="pprecio_venta" placeholder="P. Venta">
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="form-group">
                                 <label for="accion">Acción</label>
-                                <button type="button" id="btn_add" class="btn btn-success">Agregar</button>
+                                <button type="button" id="btn_add"
+                                    class="btn btn-block btn-outline-success">Agregar</button>
                             </div>
                         </div>
                     </div>
 
-                        
-                        <div class="col-12">
-                            <div class="card-body">
-                                <table class="table table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Opciones</th>
-                                            <th>Producto</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio Compra</th>
-                                            <th>Precio Venta</th>
-                                            <th>Subtotal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="detalles">
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th colspan="5">
-                                                <p align="right">SUBTOTAL:</p>
-                                            </th>
-                                            <th>
-                                                <p align="right"><span id="subtotal">L 0.00</span> </p>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="5">
-                                                <p align="right">TOTAL IMPUESTO (15%):</p>
-                                            </th>
-                                            <th>
-                                                <p align="right"><span id="total_impuesto">L 0.00</span> </p>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="5">
-                                                <p align="right">TOTAL:</p>
-                                            </th>
-                                            <th>
-                                                <p align="right"><span align="right" id="total_pagar_html">L 0.00</span>
-                                                    <input type="hidden" name="total_pagar" id="total_pagar"></p>
-                                            </th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                    <!-- /.card-body -->
+                    <div class="col-12">
+                        <div class="card-body">
+                            <table class="table table-striped table-bordered table-hover table-responsive-md">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Compra</th>
+                                        <th>Precio Venta</th>
+                                        <th>Subtotal</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>TOTAL</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>
+                                            <h4 id="total">L. 0.00</h4>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
+                    </div>
+                    <!-- /.card-body -->
 
-
-                        <!-- /.card-body -->
-                        <input type="hidden name="token" value="{{ csrf_token() }}" id="token">
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
-                            <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
-                        </div>
+                    
+                    <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
+                        <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
                     </div>
                 </div>
-
         </div>
-        </form>
+    </div>
+    </form>
     </div>
     <!-- /.card -->
     </div>
