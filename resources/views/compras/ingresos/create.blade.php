@@ -40,12 +40,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                 <!-- /.card-body -->
                 <div class="row">
-                    <div class="row">
-                        <div class="col-6">
+                    <div class="col-6">
                             <div class="form-group">
                                 <label for="nombre">Producto</label>
                                 <select name="id_producto" class="form-control" id="id_producto">
@@ -60,7 +58,9 @@
                         <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
                     </div>
                 </div>
+                </div>
 
+            </div>
             </form>
         </div>
         <!-- /.card -->
