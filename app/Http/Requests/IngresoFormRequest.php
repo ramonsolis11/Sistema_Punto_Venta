@@ -11,7 +11,7 @@ class IngresoFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class IngresoFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id_proveedor' => 'required',
+            'tipo_comprobante' => 'required|max:20',
+            'num_comprobante' => 'max:10',
+            'id_producto' => 'required|max:10',
+            'cantidad' => 'required',
+            'precio_compra' => 'required',
+            'precio_venta' => 'required'
         ];
     }
 }
