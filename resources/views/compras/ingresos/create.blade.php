@@ -77,13 +77,8 @@
                         </div>
                         <div class="col-2">
                             <div class="form-group">
-                                <label for="nombre">Accion</label>
-                                <select name="id_producto" class="form-control selectpicker" id="id_producto"
-                                    data-live-search="true">
-                                    @foreach ($productos as $producto)
-                                        <option value="{{ $producto->id_producto }}">{{ $producto->Articulo }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="accion">Acción</label>
+                                <button type="button" id="btn_add" class="btn btn-success">Agregar</button>
                             </div>
                         </div>
 
