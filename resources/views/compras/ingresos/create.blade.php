@@ -81,6 +81,53 @@
                                 <button type="button" id="btn_add" class="btn btn-success">Agregar</button>
                             </div>
                         </div>
+                    </div>
+
+                        <div class="col-12">
+                            <div class="card-body">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Opciones</th>
+                                            <th>Producto</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio Compra</th>
+                                            <th>Precio Venta</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detalles">
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="5">
+                                                <p align="right">SUBTOTAL:</p>
+                                            </th>
+                                            <th>
+                                                <p align="right"><span id="subtotal">L 0.00</span> </p>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="5">
+                                                <p align="right">TOTAL IMPUESTO (15%):</p>
+                                            </th>
+                                            <th>
+                                                <p align="right"><span id="total_impuesto">L 0.00</span> </p>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="5">
+                                                <p align="right">TOTAL:</p>
+                                            </th>
+                                            <th>
+                                                <p align="right"><span align="right" id="total_pagar_html">L 0.00</span>
+                                                    <input type="hidden" name="total_pagar" id="total_pagar"></p>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
