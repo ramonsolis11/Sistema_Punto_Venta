@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/Sistema_Punto_Venta/puntoventa/public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/Sistema_Punto_Venta/puntoventa/public/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/Sistema_Punto_Venta/puntoventa/public/dist/css/bootstrap-select.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/Sistema_Punto_Venta/puntoventa/public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -276,6 +277,7 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="/Sistema_Punto_Venta/puntoventa/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Sistema_Punto_Venta/puntoventa/public/dist/js/bootstrap-select.min.js"></script>
     <!-- ChartJS -->
     <script src="/Sistema_Punto_Venta/puntoventa/public/plugins/chart.js/Chart.min.js"></script>
     <!-- Sparkline -->
@@ -293,6 +295,8 @@
     <script src="/Sistema_Punto_Venta/puntoventa/public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/Sistema_Punto_Venta/puntoventa/public/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/Sistema_Punto_Venta/puntoventa/public/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/Sistema_Punto_Venta/puntoventa/public/dist/js/pages/dashboard.js"></script>
 </body>
