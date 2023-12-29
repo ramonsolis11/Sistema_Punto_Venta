@@ -44,7 +44,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="nombre">Productos</label>
-                                <select name="id_producto" class="form-control selectpicker" id="id_producto"
+                                <select name="idarticulo" class="form-control selectpicker" id="idarticulo"
                                     data-live-search="true">
                                     @foreach ($productos as $producto)
                                         <option value="{{ $producto->id_producto }}">{{ $producto->Articulo }}</option>
@@ -85,8 +85,8 @@
                     <!-- /.card-body -->
                     <div class="col-12">
                         <div class="card-body">
-                            <table class="table table-striped table-bordered table-hover table-responsive-md">
-                                <thead class="thead-light">
+                            <table id="detalles" class="table table-striped table-bordered table-hover table-responsive-md">
+                                <thead style="background-color: #A9D0F5">
                                     <tr>
                                         <th>Producto</th>
                                         <th>Cantidad</th>
@@ -119,9 +119,88 @@
                         <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
                     </div>
                 </div>
-        </div>
+                </div>
+            </div>
+        </form>
     </div>
-    </form>
-    </div>
-    </div>
+</div>
+@push('scripts')
+<script>
+
+    $(document).ready(function() {
+        $("#btn_add").click(function() {
+            agregar();
+        });
+    });
+
+    var cont = 0;
+    total = 0;
+    subtotal = [];
+
+    $("#guardar").hide();
+    $("#idarticulo").change(mostrarValores);
+
+    function mostrarValores() {
+        datosArticulo = document.getElementById('pidarticulo').value.split('_');
+        $("#pcantidad").val(datosArticulo[1]);
+        $("#unidad").html(datosArticulo[2]);
+    }
+
+    function agregar() {
+        datosArticulo = document.getElementById('pidarticulo').value.split('_');
+
+        idarticulo = datosArticulo[0];
+        articulo = $("#pidarticulo option:selected").text();
+        cantidad = $("#pcantidad").val();
+        precio_compra = $("#pprecio_compra").val();
+        precio_venta = $("#pprecio_venta").val();
+
+        if (idarticulo != "" && cantidad != "" && cantidad > 0 && precio_compra != "" && precio_venta != "") {
+            subtotal[cont] = cantidad * precio_compra;
+            total = total + subtotal[cont];
+
+            var fila = '<tr class="selected" id="fila' + cont +
+                '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont +
+                ');">X</button></td><td><input type="hidden" name="idarticulo[]" value="' + idarticulo +
+                '">' + articulo + '</td><td><input type="number" name="cantidad[]" value="' + cantidad +
+                '" readonly></td><td><input type="number" name="precio_compra[]" value="' + precio_compra +
+                '" readonly></td><td><input type="number" name="precio_venta[]" value="' + precio_venta +
+                '" readonly></td><td>' + subtotal[cont] + '</td></tr>';
+            cont++;
+            limpiar();
+            $("#total").html("L. " + total);
+            evaluar();
+            $('#detalles').append(fila);
+        } else {
+            alert("Error al ingresar el detalle del ingreso, revise los datos del artículo");
+        }
+    }
+
+
+    function limpiar() {
+        $("#pcantidad").val("");
+        $("#pprecio_compra").val("");
+        $("#pprecio_venta").val("");
+    }
+
+    function evaluar() {
+        if (total > 0) {
+            $("#guardar").show();
+        } else {
+            $("#guardar").hide();
+        }
+    }
+
+    function eliminar(index) {
+        total = total - subtotal[index];
+        $("#total").html("L. " + total);
+        $("#fila" + index).remove();
+        evaluar();
+    }
+
+
+</script>
+@endpush
+
+
 @endsection
