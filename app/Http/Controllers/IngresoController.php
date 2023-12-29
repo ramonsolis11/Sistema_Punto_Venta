@@ -46,8 +46,8 @@ public function create()
     $personas = DB::table('persona')->where('tipo_persona', '=', 'Proveedor')->get();
     $ingreso = Ingreso::all();
     $productos = DB::table('producto as p')
-        ->select(DB::raw('CONCAT(p.codigo, " ", p.nombre) AS Articulo'), 'p.id_articulo', 'p.stock', 'p.unidad')
-        ->where('p.estatus', '=', 'Activo')
+        ->select(DB::raw('CONCAT(p.codigo, " ", p.nombre) AS Articulo'), 'p.id_producto', 'p.stock')
+        ->where('p.estado', '=', 'Activo')
         ->get();
 
     return view('compras.ingresos.create', ["personas" => $personas, "productos" => $productos, "ingreso" => $ingreso]);
