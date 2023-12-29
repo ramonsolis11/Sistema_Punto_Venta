@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h3 class="card-title">Nuevo Ingreso</h3>
             </div>
-            <!-- /.card-header -->
+            
             <form action="{{ route('ingreso.store') }}" method="POST" class="form">
                 @csrf
                 <div class="card-body">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
 
-                    <!-- /.card-body -->
+
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
@@ -82,19 +82,20 @@
                         </div>
                     </div>
 
-                    <!-- /.card-body -->
+
                     <div class="col-12">
                         <div class="card-body">
                             <table id="detalles"
                                 class="table table-striped table-bordered table-hover table-responsive-md">
                                 <thead style="background-color: #A9D0F5">
                                     <tr>
+                                        <th>Opciones</th>
                                         <th>Producto</th>
                                         <th>Cantidad</th>
                                         <th>Precio Compra</th>
                                         <th>Precio Venta</th>
                                         <th>Subtotal</th>
-                                        <th>Total</th>
+
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -112,7 +113,7 @@
                             </table>
                         </div>
                     </div>
-                    <!-- /.card-body -->
+
 
                     <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
                     <div class="card-footer">
@@ -167,7 +168,7 @@
                         '<td><input type="number" name="cantidad[]" value="' + cantidad + '" readonly></td>' +
                         '<td><input type="number" name="precio_compra[]" value="' + precio_compra + '" readonly></td>' +
                         '<td><input type="number" name="precio_venta[]" value="' + precio_venta + '" readonly></td>' +
-                        '<td>' + subtotal[cont].toFixed(2) + '</td>' + // .toFixed(2) para limitar a 2 decimales
+                        '<td>' + subtotal[cont].toFixed(2) + '</td>' +
                         '</tr>';
                     cont++;
                     limpiar();
