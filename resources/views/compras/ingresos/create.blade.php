@@ -23,16 +23,16 @@
                                 </select>
                             </div>
                         </div>
-                            <div class="col-3">
-                                <div class="form-group">
-                                    <label for="tipo_documento">Tipo Documento</label>
-                                    <select name="tipo_documento" class="form-control" id="tipo_documento">
-                                        <option value="RTN">RTN</option>
-                                        <option value="DNI">DNI</option>
-                                    </select>
-                                </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="tipo_documento">Tipo Documento</label>
+                                <select name="tipo_documento" class="form-control" id="tipo_documento">
+                                    <option value="RTN">RTN</option>
+                                    <option value="DNI">DNI</option>
+                                </select>
                             </div>
-                            <div class="col-3">
+                        </div>
+                        <div class="col-3">
                             <div class="form-group">
                                 <label for="num_documento">Número Documento</label>
                                 <input type="text" class="form-control" name="num_documento" id="num_documento"
@@ -41,29 +41,63 @@
                         </div>
                     </div>
 
-                <!-- /.card-body -->
-                <div class="row">
-                    <div class="col-6">
+                    <!-- /.card-body -->
+                    <div class="row">
+                        <div class="col-4">
                             <div class="form-group">
-                                <label for="nombre">Producto</label>
-                                <select name="id_producto" class="form-control selectpicker" id="id_producto" data-live-search="true">
+                                <label for="nombre">Productos</label>
+                                <select name="id_producto" class="form-control selectpicker" id="id_producto"
+                                    data-live-search="true">
                                     @foreach ($productos as $producto)
                                         <option value="{{ $producto->id_producto }}">{{ $producto->Articulo }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
-                        <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" class="form-control" name="pcantidad" id="pcantidad"
+                                    placeholder="Cantidad">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="pcompra">P. Compra</label>
+                                <input type="number" class="form-control" name="pprecio_compra" step="0.01" min="0" id="pprecio_compra"
+                                    placeholder="P. Compra">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="pventa">P. Venta</label>
+                                <input type="number" class="form-control" name="pprecio_venta" step="0.01" min="0" id="pprecio_venta"
+                                    placeholder="P. Venta">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="nombre">Accion</label>
+                                <select name="id_producto" class="form-control selectpicker" id="id_producto"
+                                    data-live-search="true">
+                                    @foreach ($productos as $producto)
+                                        <option value="{{ $producto->id_producto }}">{{ $producto->Articulo }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
+                            <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
+                        </div>
                     </div>
                 </div>
-                </div>
 
-            </div>
-            </form>
         </div>
-        <!-- /.card -->
+        </form>
+    </div>
+    <!-- /.card -->
     </div>
     <!-- /.row -->
 @endsection
