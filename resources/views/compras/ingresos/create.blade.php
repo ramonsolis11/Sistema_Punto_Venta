@@ -83,6 +83,7 @@
                         </div>
                     </div>
 
+                        
                         <div class="col-12">
                             <div class="card-body">
                                 <table class="table table-bordered table-hover">
@@ -128,6 +129,7 @@
                                 </table>
                             </div>
                         </div>
+
 
                         <!-- /.card-body -->
                         <input type="hidden name="token" value="{{ csrf_token() }}" id="token">
