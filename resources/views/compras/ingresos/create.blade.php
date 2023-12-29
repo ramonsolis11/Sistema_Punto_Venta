@@ -43,11 +43,24 @@
                 </div>
 
                 <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
-                    <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="nombre">Producto</label>
+                                <select name="id_producto" class="form-control" id="id_producto">
+                                    @foreach ($productos as $producto)
+                                        <option value="{{ $producto->id_producto }}">{{ $producto->Articulo }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success me-1 mb-1">Guardar</button>
+                        <button type="reset" class="btn btn-danger me-1 mb-1">Cancelar</button>
+                    </div>
                 </div>
+
             </form>
         </div>
         <!-- /.card -->
