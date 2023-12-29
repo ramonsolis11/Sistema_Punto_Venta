@@ -59,15 +59,15 @@ public function store(Request $request)
         DB::beginTransaction();
         $ingreso = new Ingreso();
         $ingreso->id_proveedor = $request->get('id_proveedor');
-        $ingreso->tipo_comprobante = $request->get('tipo_comprobante');
-        $ingreso->num_comprobante = $request->get('num_comprobante');
+        $ingreso->tipo_comprobante = $request->get('tipo_documento');
+        $ingreso->num_comprobante = $request->get('num_documento');
         $mytime = Carbon::now('America/Tegucigalpa');
         $ingreso->fecha_hora = $mytime->toDateTimeString();
         $ingreso->impuesto = '15';
         $ingreso->estado = 'A';
         $ingreso->save();
 
-        $id_producto = $request->get('id_producto');
+        $id_producto = $request->get('idarticulo');
         $cantidad = $request->get('cantidad');
         $precio_compra = $request->get('precio_compra');
         $precio_venta = $request->get('precio_venta');
