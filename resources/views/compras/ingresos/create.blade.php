@@ -46,7 +46,7 @@
                     <div class="col-6">
                             <div class="form-group">
                                 <label for="nombre">Producto</label>
-                                <select name="id_producto" class="form-control" id="id_producto">
+                                <select name="id_producto" class="form-control selectpicker" id="id_producto" data-live-search="true">
                                     @foreach ($productos as $producto)
                                         <option value="{{ $producto->id_producto }}">{{ $producto->Articulo }}</option>
                                     @endforeach
