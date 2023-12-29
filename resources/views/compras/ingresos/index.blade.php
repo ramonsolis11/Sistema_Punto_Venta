@@ -55,30 +55,36 @@
                             <thead>
                                 <tr>
                                     <th>Opciones</th>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th>Fecha</th>
+                                    <th>Proveedor</th>
+                                    <th>Comprobante</th>
+                                    <th>Impuesto</th>
+                                    <th>Total</th>
+                                    <th>Estatus</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categoria as $cat)
+                                @foreach ($ingreso as $ing)
                                 <tr>
                                     <td>
                                         <!-- Action buttons -->
-                                        <a href="{{ route('categoria.edit', $cat->id_categoria) }}" class="btn btn-warning btn-sm"><i class="fas fa-pen"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-pen"></i></a>
                                         <!-- Button trigger for danger theme modal -->
-                                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-delete-{{ $cat->id_categoria }}"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#"><i class="fas fa-trash-alt"></i></button>
                                     </td>
-                                    <td>{{ $cat->id_categoria}}</td>
-                                    <td>{{ $cat->categoria}}</td>
-                                    <td>{{ $cat->descripcion}}</td>
+                                    <td>{{ $ing->fecha_hora}}</td>
+                                    <td>{{ $ing->nombre}}</td>
+                                    <td>{{ $ing->tipo_comprobante. ': '. $ing->num_comprobante}}</td>
+                                    <td>{{ $ing->impuesto}}</td>
+                                    <td>{{ $ing->total}}</td>
+                                    <td>{{ $ing->estado}}</td>
 
                                 </tr>
-                                @include('almacen.categoria.modal')
+
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $categoria->links() }}
+                        {{ $ingreso->links() }}
                     </div>
                 </div>
             </div>
