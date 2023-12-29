@@ -129,31 +129,31 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
-    $("#btn_add").click(function() {
-        agregar();
-    });
-});
+                $("#btn_add").click(function() {
+                    agregar();
+                });
+            });
 
-let cont = 0;
-let total = 0;
-let subtotal = [];
+            let cont = 0;
+            let total = 0;
+            let subtotal = [];
 
-// Comenta o elimina esta línea si no hay un botón para mostrar/ocultar.
-// $("#btn_guardar").hide();
+            // Comenta o elimina esta línea si no hay un botón para mostrar/ocultar.
+            // $("#btn_guardar").hide();
 
-function agregar() {
-    let idarticulo = $("#idarticulo").val();
-    let articulo = $("#idarticulo option:selected").text();
-    let cantidad = $("#pcantidad").val();
-    let precio_compra = $("#pprecio_compra").val();
-    let precio_venta = $("#pprecio_venta").val();
+            function agregar() {
+                let idarticulo = $("#idarticulo").val();
+                let articulo = $("#idarticulo option:selected").text();
+                let cantidad = $("#pcantidad").val();
+                let precio_compra = $("#pprecio_compra").val();
+                let precio_venta = $("#pprecio_venta").val();
 
-    if (idarticulo != "" && cantidad != "" && cantidad > 0 && precio_compra != "" && precio_venta != "") {
-        let subtotalItem = (cantidad * precio_compra).toFixed(2);
-        subtotal[cont] = subtotalItem;
-        total += parseFloat(subtotalItem);
+                if (idarticulo != "" && cantidad != "" && cantidad > 0 && precio_compra != "" && precio_venta != "") {
+                    let subtotalItem = (cantidad * precio_compra).toFixed(2);
+                    subtotal[cont] = subtotalItem;
+                    total += parseFloat(subtotalItem);
 
-        let fila = `<tr class="selected" id="fila${cont}">
+                    let fila = `<tr class="selected" id="fila${cont}">
                         <td><button type="button" class="btn btn-warning" onclick="eliminar(${cont});">X</button></td>
                         <td><input type="hidden" name="idarticulo[]" value="${idarticulo}">${articulo}</td>
                         <td><input type="number" name="cantidad[]" value="${cantidad}" readonly></td>
@@ -161,38 +161,37 @@ function agregar() {
                         <td><input type="number" name="precio_venta[]" value="${precio_venta}" readonly></td>
                         <td>${subtotalItem}</td>
                     </tr>`;
-        cont++;
-        limpiar();
-        $("#total").html("L. " + total.toFixed(2));
-        evaluar();
-        $('#detalles').append(fila);
-    } else {
-        alert("Error al ingresar el detalle del ingreso, revise los datos del artículo");
-    }
-}
+                    cont++;
+                    limpiar();
+                    $("#total").html("L. " + total.toFixed(2));
+                    evaluar();
+                    $('#detalles').append(fila);
+                } else {
+                    alert("Error al ingresar el detalle del ingreso, revise los datos del artículo");
+                }
+            }
 
-function limpiar() {
-    $("#pcantidad").val("");
-    $("#pprecio_compra").val("");
-    $("#pprecio_venta").val("");
-}
+            function limpiar() {
+                $("#pcantidad").val("");
+                $("#pprecio_compra").val("");
+                $("#pprecio_venta").val("");
+            }
 
-function evaluar() {
-    if (total > 0) {
-        // Asegúrate de que el id del botón de guardar corresponda con el que está en el HTML.
-        // $("#btn_guardar").show();
-    } else {
-        // $("#btn_guardar").hide();
-    }
-}
+            function evaluar() {
+                if (total > 0) {
+                    // Asegúrate de que el id del botón de guardar corresponda con el que está en el HTML.
+                    // $("#btn_guardar").show();
+                } else {
+                    // $("#btn_guardar").hide();
+                }
+            }
 
-function eliminar(index) {
-    total -= parseFloat(subtotal[index]);
-    $("#total").html("L. " + total.toFixed(2));
-    $("#fila" + index).remove();
-    evaluar();
-}
-
+            function eliminar(index) {
+                total -= parseFloat(subtotal[index]);
+                $("#total").html("L. " + total.toFixed(2));
+                $("#fila" + index).remove();
+                evaluar();
+            }
         </script>
     @endpush
 @endsection
