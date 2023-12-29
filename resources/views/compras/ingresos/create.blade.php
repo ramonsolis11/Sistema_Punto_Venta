@@ -10,14 +10,14 @@
             <!-- /.card-header -->
 
             <!-- form start -->
-            <form action="{{ route('ingresos.store') }}" method="POST" class="form">
+            <form action="{{ route('ingreso.store') }}" method="POST" class="form">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nombre">Proveedor</label>
                         <select name="id_proveedor" class="form-control" id="id_proveedor">
                             @foreach ($personas as $persona)
-                                <option value="{{ $persona->idpersona }}">{{ $persona->nombre }}</option>
+                                <option value="{{ $persona->id_persona }}">{{ $persona->nombre }}</option>
                             @endforeach
                         </select>
 
